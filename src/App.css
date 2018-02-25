@@ -1,0 +1,57 @@
+/*---Loading screen-----------*/
+.loading {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #2a2a2a;
+}
+
+.loading h1 {
+  font-family: ubuntu, sans-serif;
+  font-weight: 100;
+  color: #222;
+  animation: loading 2100ms infinite;
+  letter-spacing: 10px;
+  font-size: 10vmin;
+}
+
+/*---I need to learn sass!-----------------------*/
+.loading h1:nth-of-type(1) {
+  animation-delay: 200ms;
+}
+.loading h1:nth-of-type(2) {
+  animation-delay: 400ms;
+}
+.loading h1:nth-of-type(3) {
+  animation-delay: 600ms;
+}
+.loading h1:nth-of-type(4) {
+  animation-delay: 800ms;
+}
+.loading h1:nth-of-type(5) {
+  animation-delay: 1000ms;
+}
+.loading h1:nth-of-type(6) {
+  animation-delay: 1200ms;
+}
+.loading h1:nth-of-type(7) {
+  animation-delay: 1400ms;
+}
+.loading h1:nth-of-type(8) {
+  animation-delay: 1600ms;
+}
+.loading h1:nth-of-type(9) {
+  animation-delay: 1800ms;
+}
+.loading h1:nth-of-type(10) {
+  animation-delay: 2000ms;
+}
+
+@keyframes loading {
+  0% { color: #222; }
+  50% { color: #ccc; }
+  100% { color: #222; }
+}
+
+/*---------End of loading screen----------------*/

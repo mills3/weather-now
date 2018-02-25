@@ -1,5 +1,9 @@
 import React from 'react';
 
+import Loading from './components/Loading';
+
+import './App.css';
+
 const mockData = {
   "coord":
     {
@@ -37,7 +41,7 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-
+      loading: true,
     }
   }
 
@@ -67,20 +71,28 @@ class App extends React.Component {
 
     setTimeout(() => {
       this.setState({
-        city: mockData.name,
-        description: mockData.weather[0].description,
+        data: mockData,
+        loading: false,
       })
-    }, 1500);
+    }, 2000);
   }
 
   render() {
-    return (
-      <div className="app">
-        <h1>{this.state.city}</h1>
-        <p>{this.state.description}</p>
-      </div>
-    );
+    const { data } = this.state;
+
+    if(this.state.loading) {
+      return <Loading />
+    } else {
+      return (
+        <div className="app">
+          <h1>{data.name}</h1>
+          <h1>Wed 19:08</h1>
+        </div>
+      );
+    }
   }
+
+
 }
 
 export default App;
