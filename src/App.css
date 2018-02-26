@@ -1,3 +1,32 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto+Condensed');
+
+:root {
+  --diameter: 90vmin;
+  --innerDiameter: calc(var(--diameter) - 8vmin);
+  /*---Divisor determines the height/width of the arrow---*/
+  --divisor: 15;
+  /*---Calculate arrow dimensions this way to keep everything responsive---*/
+
+  /*===========================================CHECK ALL BELOW(think it might be nonsense!!!!)=======================*/
+  --arrowDimensions: calc(var(--diameter) / var(--divisor));
+  /*---Value for transform-origin on Y axis---*/
+  --originY: calc(var(--arrowDimensions) * var(--divisor) / 2);
+  /*===================================================================================================================*/
+
+  --fontFamily: 'Roboto Condensed', sans-serif;
+  --fontWeight: 100;
+  --largeFont: calc(var(--diameter) / 6);
+  --mediumFont: calc(var(--diameter) / 11);
+  --smallFont: calc(var(--diameter) / 19);
+
+  --textColor: #fff;
+  --altTextColor: #f00;
+  --discColor: #0390b8d9;
+  --altDiscColor: tomato;
+
+  overflow: hidden;
+}
+
 /*---Loading screen-----------*/
 .loading {
   height: 100vh;
@@ -55,3 +84,124 @@
 }
 
 /*---------End of loading screen----------------*/
+
+
+.app {
+  width: 100vw;
+  height: 100vh;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: var(--discColor);
+  font-family: var(--fontFamily);
+  font-weight: var(--fontWeight);
+}
+
+.city {
+  font-weight: var(--fontWeight);
+  font-size: var(--mediumFont);
+  z-index: 9;
+  /*color: var(--textColor);*/
+}
+
+.weather-container {
+  width: var(--diameter);
+  height: var(--diameter);
+  border-radius: 50%;
+  display: grid;
+  justify-content: center;
+  align-items: center;
+
+  background: var(--discColor);
+  /*border: 1px solid var(--textColor);*/
+  overflow: hidden;
+  color: var(--textColor);
+
+  opacity: 0;
+  animation: fadeIn 500ms forwards;
+  animation-delay: 300ms;
+  animation-timing-function: cubic-bezier(0.075, 0.82, 0.165, 1);
+  position: relative;
+
+  /*---Transition for changing theme---*/
+  transition: 500ms;
+}
+
+.points {
+  position: absolute;
+  font-size: 3vmin;
+  color: var(--textColor);
+}
+
+.north {
+  justify-self: center;
+  align-self: flex-start;
+  top: 0.5vmin;
+}
+
+.east {
+  justify-self: flex-end;
+  align-self: center;
+  right: 1.2vmin;
+}
+
+.south {
+  justify-self: center;
+  align-self: flex-end;
+  bottom: 0;
+}
+
+.west {
+  left: 0.8vmin;
+}
+
+.angled-lines {
+  position: absolute;
+  background: var(--textColor);
+  width: calc((var(--diameter) - var(--innerDiameter)) / 2);
+  height: 1px;
+  --origin-left: calc(-1 * var(--innerDiameter) / 2);
+  /*--origin-right: calc( var(--innerDiameter) / 2);*/
+}
+
+.angled-lines:nth-of-type(1) {
+
+  right: 0;
+  transform-origin: var(--origin-left) 0;
+  transform: rotate(-45deg);
+}
+
+.angled-lines:nth-of-type(2) {
+
+  right: 0;
+  transform-origin: var(--origin-left) 0;
+  transform: rotate(45deg);
+}
+
+.angled-lines:nth-of-type(3) {
+
+  right: 0;
+  transform-origin: var(--origin-left) 0;
+  transform: rotate(135deg);
+}
+
+.angled-lines:nth-of-type(4) {
+
+  right: 0;
+  transform-origin: var(--origin-left) 0;
+  transform: rotate(225deg);
+}
+
+@keyframes fadeIn {
+  0% { opacity: 0; top: 200px; }
+  100% { opacity: 1; top: 0; }
+}
+
+.weather-inner {
+  width: var(--innerDiameter);
+  height: var(--innerDiameter);
+  border: 1px solid var(--textColor);
+  border-radius: 50%;
+}

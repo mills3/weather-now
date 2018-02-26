@@ -1,6 +1,7 @@
 import React from 'react';
 
 import Loading from './components/Loading';
+import WeatherContainer from './components/WeatherContainer';
 
 import './App.css';
 
@@ -84,8 +85,9 @@ class App extends React.Component {
       return <Loading />
     } else {
       return (
-        <div className="app">
-          <h1>{data.name}</h1>
+        <div className='app'>
+          <h1 className="city">{data.name}</h1>
+          <WeatherContainer />
           <h1>Wed 19:08</h1>
         </div>
       );
