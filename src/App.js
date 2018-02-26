@@ -88,7 +88,7 @@ class App extends React.Component {
         <div className='app'>
           <h1 className="city">{data.name}</h1>
           <WeatherContainer />
-          <h1>Wed 19:08</h1>
+          <h1 className="date">Wed 19:08</h1>
         </div>
       );
     }
