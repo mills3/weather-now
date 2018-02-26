@@ -22,7 +22,7 @@ const mockData = {
       "temp":22.59,
       "pressure":1027.45,
       "humidity":100,
-      "temp_min":22.59,
+      "temp_min":20.59,
       "temp_max":22.59,
       "sea_level":1027.47,
       "grnd_level":1027.45
@@ -43,51 +43,53 @@ class App extends React.Component {
     super(props);
     this.state = {
       loading: true,
+      error: null,
     }
   }
 
   componentDidMount() {
-    // if(navigator.geolocation) {
-    //   navigator.geolocation.getCurrentPosition(pos => {
-    //     console.log(pos.coords.latitude);
-    //     this.setState({
-    //       lat: pos.coords.latitude,
-    //       lon: pos.coords.longitude,
-    //     }, () => {
-    //       fetch('https://fcc-weather-api.glitch.me/api2/current?lat=' + this.state.lat + '&lon=' + this.state.lon)
-    //         .then(response => {
-    //           if(response.ok) {
-    //             return response.json();
-    //           } else {
-    //             return Promise.reject('Something went wrong');
-    //           }
-    //         })
-    //         .then(data => console.log(data))
-    //         .catch(error => console.log(error));
-    //     })
+    // navigator.geolocation.getCurrentPosition(pos => {
+    //   console.log(pos.coords.latitude);
+    //   this.setState({
+    //     lat: pos.coords.latitude,
+    //     lon: pos.coords.longitude,
+    //   }, () => {
+    //     fetch('https://fcc-weather-api.glitch.me/api/current?lat=' + this.state.lat + '&lon=' + this.state.lon)
+    //       .then(response => {
+    //         if(response.ok) {
+    //           return response.json();
+    //         } else {
+    //           throw new Error('Something went wrong...');
+    //         }
+    //       })
+    //       .then(data => this.setState({ info: data, loading: false}))
+    //       .catch(error => this.setState({ error, loading: false }));
     //   })
-    // } else {
-    //   alert('Geolocation not available on your device.');
-    // }
+    // })
 
-    setTimeout(() => {
-      this.setState({
-        data: mockData,
-        loading: false,
-      })
-    }, 2000);
+      setTimeout(() => {
+        this.setState({
+          info: mockData,
+          loading: false,
+        })
+      }, 2000);
   }
 
   render() {
-    const { data } = this.state;
+    const { info, loading, error } = this.state;
 
-    if(this.state.loading) {
+    if(error) {
+      return <p>{error.message}</p>
+    }
+
+    if(loading) {
       return <Loading />
     } else {
       return (
         <div className='app'>
-          <h1 className="city">{data.name}</h1>
-          <WeatherContainer />
+          <div className="bg-image"></div>
+          <h1 className="city">{info.name}</h1>
+          <WeatherContainer info={info}/>
           <h1 className="date">Wed 19:08</h1>
         </div>
       );

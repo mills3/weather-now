@@ -17,7 +17,7 @@
   --fontWeight: 100;
   --largeFont: calc(var(--diameter) / 6);
   --mediumFont: calc(var(--diameter) / 11);
-  --smallFont: calc(var(--diameter) / 19);
+  --smallFont: calc(var(--diameter) / 20);
 
   --textColor: #fff;
   --altTextColor: #f00;
@@ -34,13 +34,14 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background: #2a2a2a;
+  /*background: #2a2a2a;*/
 }
 
 .loading h1 {
-  font-family: ubuntu, sans-serif;
+  font-family: var(--fontFamily);
   font-weight: 100;
-  color: #222;
+  /*color: #222;*/
+  color: #bdc9e9;
   animation: loading 2100ms infinite;
   letter-spacing: 10px;
   font-size: 10vmin;
@@ -79,9 +80,9 @@
 }
 
 @keyframes loading {
-  0% { color: #222; }
-  50% { color: #ccc; }
-  100% { color: #222; }
+  0% { color: #bdc9e9; }
+  50% { color: var(--discColor); }
+  100% { color: #bdc9e9; }
 }
 
 /*---------End of loading screen----------------*/
@@ -100,11 +101,18 @@
   font-weight: var(--fontWeight);
 }
 
+.bg-image {
+  height: 100vh;
+  width: 100vw;
+  background: url('assets/feather.jpeg');
+  position: absolute;
+  background-size: cover;
+}
+
 .city {
   font-weight: var(--fontWeight);
   font-size: var(--mediumFont);
   z-index: 9;
-  /*color: var(--textColor);*/
 }
 
 .weather-container {
@@ -232,7 +240,7 @@
   grid-row: 3;
   font-size: var(--smallFont);
   align-self: flex-start;
-  padding-top: 10px;
+  padding-top: 4vmin;
 }
 
 hr {
@@ -252,7 +260,7 @@ hr {
   grid-row: 3;
   font-size: var(--smallFont);
   align-self: flex-end;
-  padding-bottom: 10px;
+  padding-bottom: 4vmin;
   display: flex;
   justify-content: center;
 }
@@ -267,7 +275,7 @@ hr {
   grid-row: 3;
   font-size: var(--smallFont);
   align-self: flex-start;
-  padding-top: 10px;
+  padding-top: 4vmin;
 }
 
 .right-hr {
@@ -280,7 +288,7 @@ hr {
   grid-row: 3;
   font-size: var(--smallFont);
   align-self: flex-end;
-  padding-bottom: 10px;
+  padding-bottom: 4vmin;
   display: flex;
   justify-content: center;
 }
@@ -328,6 +336,7 @@ hr {
 .date {
   font-size: var(--mediumFont);
   font-weight: var(--fontWeight);
+  z-index: 9;
 }
 
 @media (orientation: landscape) {
