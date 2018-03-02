@@ -12,7 +12,7 @@ const mockData = {
       "lat":35
     },
     "weather":[
-      { "id":500,
+      { "id":904,
         "main":"Rain",
         "description":"light rain",
         "icon":"https://cdn.glitch.com/6e8889e5-7a72-48f0-a061-863548450de5%2F10n.png?1499366021399" }
