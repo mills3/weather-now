@@ -23,6 +23,7 @@
   --altTextColor: #f00;
   --discColor: #0390b8d9;
   --altDiscColor: tomato;
+  --windColor: 1, 83, 106;
 
   /*---Grid always seems to cause scrolling????---*/
   overflow: hidden;
@@ -92,7 +93,9 @@
   width: 100vw;
   height: 100vh;
   display: grid;
-  grid-template-rows: auto 1fr auto;
+  /*grid-template-rows: auto 1fr auto;*/
+  /*---Had to change this as something wasnt working in chrome---*/
+  grid-template-rows: 1fr 1fr 1fr;
   justify-content: center;
   align-items: center;
   text-align: center;
@@ -107,6 +110,7 @@
   background: url('assets/feather.jpeg');
   position: absolute;
   background-size: cover;
+  filter: brightness(95%);
 }
 
 .city {
@@ -119,6 +123,7 @@
   width: var(--diameter);
   height: var(--diameter);
   border-radius: 50%;
+  align-self: center;
   display: grid;
   justify-content: center;
   align-items: center;
@@ -228,19 +233,20 @@
   padding: 1vmin;
   transition: 100ms;
   justify-self: center;
-  border: 1px solid rgba(0,0,0,0.1);
+  /*border-right: 1px solid rgba(0,0,0,0.1);
+  border-bottom: 1px solid rgba(0,0,0,0.1);*/
   border-radius: 1vmin;
 }
-.main-temp:hover {
+/*.main-temp:hover {
   box-shadow: 1vmin 1vmin 1vmin rgba(0,0,0,0.5);
-}
+}*/
 
 .min {
   grid-column: 1 / 3;
   grid-row: 3;
   font-size: var(--smallFont);
   align-self: flex-start;
-  padding-top: 4vmin;
+  padding-top: calc(var(--diameter) / 35);
 }
 
 hr {
@@ -260,7 +266,7 @@ hr {
   grid-row: 3;
   font-size: var(--smallFont);
   align-self: flex-end;
-  padding-bottom: 4vmin;
+  padding-bottom: calc(var(--diameter) / 35);
   display: flex;
   justify-content: center;
 }
@@ -275,7 +281,7 @@ hr {
   grid-row: 3;
   font-size: var(--smallFont);
   align-self: flex-start;
-  padding-top: 4vmin;
+  padding-top: calc(var(--diameter) / 35);
 }
 
 .right-hr {
@@ -288,7 +294,7 @@ hr {
   grid-row: 3;
   font-size: var(--smallFont);
   align-self: flex-end;
-  padding-bottom: 4vmin;
+  padding-bottom: calc(var(--diameter) / 35);
   display: flex;
   justify-content: center;
 }
@@ -298,12 +304,152 @@ hr {
   margin-right: 5px;
 }
 
-.icon {
+/*.icon {
   grid-column: 3 / 4;
   grid-row: 3;
   justify-self: center;
   width: 20vmin;
+}*/
+
+.svg-icon {
+  grid-column: 3 / 4;
+  grid-row: 3;
+  justify-self: center;
+  width: calc(var(--diameter) / 4.5);
 }
+/*-----Rain animation----*/
+.raindrop {
+  animation: rain 2s infinite;
+}
+.raindrop:nth-child(2) {
+  animation-delay: 0.5s;
+}
+.raindrop:nth-child(3) {
+  animation-delay: 1s;
+}
+.raindrop:nth-child(4) {
+  animation-delay: 1.5s;
+}
+@keyframes rain {
+  0% { opacity: 1; }
+  50% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+/*-----Snow animation----*/
+.flake {
+  position: relative;
+  animation: snow 2s infinite ease-out;
+}
+.flake2 {
+  animation-delay: 0.5s;
+}
+.flake3 { animation-delay: 1s; }
+.flake4 { animation-delay: 1.5s; }
+
+@keyframes snow {
+  0% { top: 0; left: 0; opacity: 0; }
+  20% { left: 3px; opacity: 1;}
+  40% { left: -3px; }
+  60% { left: 3px; }
+  100% { top: 10px; left: 3px; opacity: 0; }
+}
+
+/*-----Fog animation----*/
+.fogline {
+  animation: fog 10s infinite;
+}
+.fog5 {
+  animation-delay: 2s;
+}
+.fog4 {
+  animation-delay: 1.5s;
+}
+.fog3 {
+  animation-delay: 1s;
+}
+.fog2 {
+  animation-delay: 0.5s;
+}
+.fog1 {
+  animation-delay: 0s;
+}
+@keyframes fog {
+  0% { stroke: #fff; }
+  50% { stroke: #737474; }
+  100% { stroke: #fff; }
+}
+
+/*---Clear day animation---*/
+.sun {
+  animation: spin 30s infinite linear;
+  transform-origin: 50% 50%;
+}
+@keyframes spin {
+  from { transform: rotate(0); }
+  to { transform: rotate(360deg); }
+}
+.sunline {
+  animation: sun 2s infinite;
+  stroke-dasharray: 12px;
+  stroke-dashoffset: 0px;
+}
+@keyframes sun {
+  0% { stroke-dashoffset: 0px; }
+  50% { stroke-dashoffset: 6px; }
+  100% { stroke-dashoffset: 0px; }
+}
+
+/*---Cloudy animation---*/
+.cloud {
+  opacity: 0;
+  animation: clouds 7s infinite;
+}
+.cloud2 {
+  animation-delay: 0.5s;
+}
+.cloud3 {
+  animation-delay: 1s;
+}
+.cloud4 {
+  animation-delay: 1.5s;
+}
+@keyframes clouds {
+  0% { opacity: 0; }
+  50% { opacity: 1; }
+  100% { opacity: 0; }
+}
+
+/*---Wind1 animation---*/
+.line {
+  animation: wind1 2.5s infinite;
+  position: relative;
+}
+.line2 {
+  animation-delay: 0.5s;
+}
+.line5, .line6, .line7 {
+  animation: wind1 2s infinite;
+}
+.line8, .line9, .line10 {
+  animation: wind1 1.5s infinite;
+}
+/*@keyframes wind1 {
+  0% { transform: translateX(0); }
+  50% { transform: translateX(5px); }
+  100% { transform: translateX(0); }
+}*/
+
+/*---Wind2 animation---*/
+.windmill {
+  animation: rotate 2s infinite ;
+  transform-origin: 50% 50%;
+}
+@keyframes rotate {
+  from { transform: rotate(0); }
+  to { transform: rotate(720deg); }
+}
+
 
 .description {
   grid-column: 1 / -1;
@@ -314,8 +460,9 @@ hr {
 .wind-speed {
   grid-column: 1 / -1;
   grid-row: 5;
-  font-size: var(--smallFont);
-  /*color: var(--invertOrange);*/
+  font-size: calc(var(--diameter) / 13);
+  color: rgb(var(--windColor));
+  /*text-shadow: 1px 1px 0 #fff;*/
 }
 
 /*----the arrow(class name generated by styled-components)----------*/
@@ -323,7 +470,7 @@ hr {
   width: 0;
   height: 0;
   position: absolute;
-  border-top: var(--arrowDimensions) solid rgba(255,255,255,0.6);
+  border-top: var(--arrowDimensions) solid rgba(var(--windColor), 0.8);
   border-left: var(--arrowDimensions) solid transparent;
   border-right: var(--arrowDimensions) solid transparent;
   top: 0;
@@ -331,13 +478,19 @@ hr {
   z-index: 99;
   transform: translateX(-50%);
   transform-origin: 50% var(--originY);
+
+  /*---Different width in chrome(no use) ---*/
+  /*filter:drop-shadow(2px 2px 0 #fff);*/
 }
 
 .date {
   font-size: var(--mediumFont);
   font-weight: var(--fontWeight);
   z-index: 9;
+  text-shadow: 1px 1px 1px #fff, -1px -1px 1px #fff;
+  /*align-self: flex-end;*/
 }
+
 
 @media (orientation: landscape) {
   :root {

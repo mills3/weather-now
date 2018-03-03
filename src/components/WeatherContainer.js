@@ -2,6 +2,9 @@ import React from 'react';
 
 import Moment from 'react-moment';
 import styled, { keyframes } from 'styled-components';
+// import Icon from './Icon';
+// import SnowIcon from './SnowIcon';
+import TestIcon from './TestIcon';
 
 //keyframe animation using styled-components
 const moveToDegree = (props) => keyframes`
@@ -15,6 +18,9 @@ const Arrow = styled.div`
   animation-delay: 800ms;
   animation-timing-function: ease-in-out;
 `;
+
+//How do i animate my svg if i don't know which svg??????????
+
 
 const WeatherContainer = ({ info }) => {
   return (
@@ -46,7 +52,9 @@ const WeatherContainer = ({ info }) => {
           <Moment unix={true} format="H:mm">{info.sys.sunset}</Moment>
         </div>
 
-        <img className="icon" src="http://fillmurray.com/200/200" alt="placeholder" />
+        {/* <img className="icon" src="http://fillmurray.com/200/200" alt="placeholder" /> */}
+        {/* <img className="svg-icon" src={require('../svg/rain.svg')} alt="weather icon"/> */}
+        <TestIcon code={info.weather[0].id}/>
 
         <h3 className="description">{info.weather[0].description}</h3>
         <h3 className="wind-speed">{Math.floor(info.wind.speed)} mph</h3>

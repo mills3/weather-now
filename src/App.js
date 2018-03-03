@@ -12,7 +12,7 @@ const mockData = {
       "lat":35
     },
     "weather":[
-      { "id":500,
+      { "id":901,
         "main":"Rain",
         "description":"light rain",
         "icon":"https://cdn.glitch.com/6e8889e5-7a72-48f0-a061-863548450de5%2F10n.png?1499366021399" }
@@ -28,8 +28,8 @@ const mockData = {
       "grnd_level":1027.45
     },
     "wind":{
-      "speed":8.12,
-      "deg":246.503
+      "speed":13,
+      "deg":90,
     },
     "rain":{ "3h":0.45 },
     "clouds":{ "all":92 },
