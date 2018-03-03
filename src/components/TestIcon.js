@@ -1,7 +1,6 @@
 //import React from 'react';
 import paths from '../svg-paths';
 
-//'light rain'
 
 const TestIcon = ({ code }) => {
   if(code < 600) return paths.rain;

@@ -1,7 +1,7 @@
 import React from 'react';
 
 const paths = {
-  rain: <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  rain: <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" className="svg-icon">
     <g fill="#fff" fillRule="evenodd">
       <g transform="matrix(1.28244 0 0 1.28846 -3.857 -10.962)">
         <ellipse ry="9" rx="9.273" cy="29" cx="13.273"/>
@@ -91,9 +91,9 @@ const paths = {
   </svg>,
 
   sun: <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" className="svg-icon">
-    <g className="sun" fill="none" stroke="#fff" stroke-width="1.03">
+    <g className="sun" fill="none" stroke="#fff" strokeWidth="1.03">
       <circle cx="32" cy="31.999" r="14.045"/>
-      <path className="sunline" d="M32 15.07V3.117M32 48.975v11.951M48.968 32h11.951M15 32H3.05M43.998 20.04l8.45-8.451M20.005 20.078l-8.45-8.45M43.997 43.967l8.45 8.45M20.037 43.966l-8.45 8.45" stroke-linecap="round"/>
+      <path className="sunline" d="M32 15.07V3.117M32 48.975v11.951M48.968 32h11.951M15 32H3.05M43.998 20.04l8.45-8.451M20.005 20.078l-8.45-8.45M43.997 43.967l8.45 8.45M20.037 43.966l-8.45 8.45" strokeLinecap="round"/>
     </g>
   </svg>,
 
@@ -122,7 +122,7 @@ const paths = {
     </g>
   </svg>,
 
-  wind1: <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  wind1: <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" className="svg-icon">
     <g fill="none" stroke="#fff" strokeWidth="1.138">
       <path className="line line1" d="M3.35 6.184h45.938"/>
       <path className="line line2" d="M7.49 11.565h39.832"/>
@@ -137,7 +137,7 @@ const paths = {
     </g>
   </svg>,
 
-  wind2: <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  wind2: <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" className="svg-icon">
     <g className="windmill" transform="matrix(1.15762 0 0 1.15762 -5.079 -4.036)" stroke="#fff" fill="none">
       <g strokeLinecap="round">
         <path d="M31.847 26.113s-2.625-3.465-2.924-5.528c-.71-4.89 2.924-14.528 2.924-14.528"/>
