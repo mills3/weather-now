@@ -32,28 +32,29 @@ const WeatherContainer = ({ info }) => {
       <div className="angled-lines"></div>
 
       <div className="weather-inner">
-        <h1 className="main-temp">{Math.floor(info.main.temp)}&deg;C</h1>
+        <h1 className="main-temp">{Math.floor(info.temp)}&deg;{info.buttonTemp === 'F'?'C':'F'}</h1>
 
-        <h3 className="min alt-temp">min: {Math.floor(info.main.temp_min)}&deg;C</h3>
+        <h3 className="min alt-temp">min: {Math.floor(info.minTemp)}&deg;{info.buttonTemp === 'F'?'C':'F'}</h3>
         <hr className="left-hr"/>
         <div className="sunrise">
           <h3>sunrise:</h3>
-          <Moment unix={true} format="H:mm">{info.sys.sunrise}</Moment>
+          <Moment unix={true} format="H:mm">{info.sunrise}</Moment>
         </div>
 
-        <h3 className="max alt-temp">max: {Math.floor(info.main.temp_max)}&deg;C</h3>
+        <h3 className="max alt-temp">max: {Math.floor(info.maxTemp)}&deg;{info.buttonTemp === 'F'?'C':'F'}</h3>
         <hr className="right-hr"/>
         <div className="sunset">
           <h3>sunset:</h3>
-          <Moment unix={true} format="H:mm">{info.sys.sunset}</Moment>
+          <Moment unix={true} format="H:mm">{info.sunset}</Moment>
         </div>
 
-        <WeatherIcon code={info.weather[0].id}/>
+        <WeatherIcon code={info.id}/>
 
-        <h3 className="description">{info.weather[0].description}</h3>
-        <h3 className="wind-speed">{Math.floor(info.wind.speed)} mph</h3>
+        <h3 className="mainDescription">{info.mainDescription}</h3>
+        <h3 className="detailDescription">{info.detailDescription}</h3>
+        <h3 className="wind-speed">{Math.floor(info.windSpeed)} mph</h3>
       </div>
-      <Arrow deg={info.wind.deg}></Arrow>
+      <Arrow deg={info.windDeg}></Arrow>
     </div>
   );
 }

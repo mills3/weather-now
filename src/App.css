@@ -109,7 +109,45 @@
   filter: brightness(95%);
 }
 
+/*.buttons {
+  grid-row: 1;
+  grid-column: 1;
+  align-self: flex-start;
+  display: flex;
+  justify-content: space-between;
+  z-index: 19;
+  margin-top: 5vmin;
+}*/
+
+button {
+  color: var(--discColor);
+  font-size: var(--smallFont);
+  /*background: radial-gradient(circle at top left, #fff, #ccc);*/
+  background: rgba(255,255,255, 0.5);
+  box-shadow: 1px 1px 1px rgba(0,0,0,0.5);
+  /*border: 1px solid var(--discColor);*/
+  border: none;
+  border-radius: 50%;
+  width: 9vmin;
+  height: 9vmin;
+  cursor: pointer;
+  position: absolute;
+  top: calc(var(--diameter) / 15);
+  right: calc(var(--diameter) / 15);
+  stroke: var(--discColor);
+  fill: var(--discColor);
+
+}
+button:active {
+  background: radial-gradient(circle at top left, #38c3b2, var(--discColor));
+  color: #fff;
+  fill: #fff;
+  transform: translate(0px, 1px);
+}
+
 .city {
+  grid-row: 1;
+  grid-column: 1;
   font-weight: var(--fontWeight);
   font-size: var(--mediumFont);
   z-index: 9;
@@ -123,7 +161,10 @@
   display: grid;
   justify-content: center;
   align-items: center;
-  background: var(--discColor);
+  /*background: var(--discColor);*/
+  /*background: linear-gradient(135deg, #4fb4d4, var(--discColor));*/
+  background: radial-gradient(circle at top left, #38c3b2, var(--discColor));
+  box-shadow: 2px 2px 2px rgba(0,0,0,0.5);
   overflow: hidden;
   color: var(--textColor);
   opacity: 0;
@@ -299,7 +340,7 @@ hr {
 }
 /*-----Rain animation----*/
 .raindrop {
-  animation: rain 2s infinite;
+  /*animation: rain 2s infinite;*/
 }
 .raindrop:nth-child(2) {
   animation-delay: 0.5s;
@@ -430,10 +471,20 @@ hr {
   to { transform: rotate(720deg); }
 }
 
-.description {
+.mainDescription {
   grid-column: 1 / -1;
   grid-row: 4;
   font-size: var(--mediumFont);
+  align-self: flex-start;
+}
+
+.detailDescription {
+  /*--This can get pretty long ie: "light intensity drizzle rain"---*/
+  grid-column: 1 / -1;
+  grid-row: 4;
+  font-size: var(--smallFont);
+  text-align: center;
+  align-self: flex-end;
 }
 
 .wind-speed {
@@ -471,3 +522,10 @@ hr {
     --diameter: 75vmin;
   }
 }
+/*---Stops hover styles on firefox completely???????????----*/
+/*@media (hover: hover) {
+  button:hover {
+    color: pink;
+    background: #000;
+  }
+}*/
