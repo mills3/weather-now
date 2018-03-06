@@ -52,7 +52,7 @@ const WeatherContainer = ({ info }) => {
 
         <h3 className="mainDescription">{info.mainDescription}</h3>
         <h3 className="detailDescription">{info.detailDescription}</h3>
-        <h3 className="wind-speed">{Math.floor(info.windSpeed)} mph</h3>
+        <h3 className="wind-speed">{Math.floor(info.windSpeed * (3600/1609.344))} mph</h3>
       </div>
       <Arrow deg={info.windDeg}></Arrow>
     </div>
