@@ -34,7 +34,6 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  /*background: #2a2a2a;*/
 }
 
 .loading h1 {
@@ -107,13 +106,14 @@
   background: url('assets/feather.jpeg');
   position: absolute;
   background-size: cover;
+  background-repeat: no-repeat;
   filter: brightness(95%);
 }
 
 button {
   color: var(--textColor);
   font-size: var(--smallFont);
-  background: radial-gradient(circle at top left, #38c3b2, var(--discColor));
+  background: radial-gradient(circle at top left, rgb(56, 195, 178, 0.8), var(--discColor));
   box-shadow: 1px 1px 1px rgba(0,0,0,0.5);
   border: none;
   border-radius: 50%;
@@ -126,9 +126,7 @@ button {
   z-index: 99;
 }
 button:active {
-  background: rgba(255,255,255, 0.5);
-  color: #fff;
-  fill: #fff;
+  opacity: 0.7;
   transform: translate(0px, 1px);
 }
 
@@ -148,7 +146,7 @@ button:active {
   display: grid;
   justify-content: center;
   align-items: center;
-  background: radial-gradient(circle at top left, #38c3b2, var(--discColor));
+  background: radial-gradient(circle at top left, rgb(56, 195, 178, 0.8), var(--discColor));
   box-shadow: 2px 2px 2px rgba(0,0,0,0.5);
   overflow: hidden;
   color: var(--textColor);

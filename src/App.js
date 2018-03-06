@@ -51,7 +51,7 @@ class App extends React.Component {
     }
   }
 
-//STILL SHOWING SHUZENJI( CHINA ) SOMETIMES????????????????????????????????????????????????????????????????????????????/
+//STILL SHOWING SHUZENJI( Japan ) SOMETIMES????????????????????????????????????????????????????????????????????????????/
 
 componentDidMount() {
     navigator.geolocation.getCurrentPosition(pos => {
@@ -60,8 +60,7 @@ componentDidMount() {
         lat: pos.coords.latitude,
         lon: pos.coords.longitude,
       }, () => {
-        //fetch('https://fcc-weather-api.glitch.me/api/current?lat=' + this.state.lat + '&lon=' + this.state.lon)
-        fetch('https://fcc-weather-api.glitch.me/api/current?lat=56.482&lon=-2.811')
+        fetch('https://fcc-weather-api.glitch.me/api/current?lat=' + this.state.lat + '&lon=' + this.state.lon)
           .then(response => {
             if(response.ok) {
               return response.json();
@@ -87,25 +86,25 @@ componentDidMount() {
       })
     })
 
+    //---Mock API call to avoid too many requests---
+    // setTimeout(() => {
+    //   this.setState({
+    //     city: mockdata.name,
+    //     temp: mockdata.main.temp,
+    //     minTemp: mockdata.main.temp_min,
+    //     maxTemp: mockdata.main.temp_max,
+    //     mainDescription: mockdata.weather[0].main,
+    //     detailDescription: mockdata.weather[0].description,
+    //     windSpeed: mockdata.wind.speed,
+    //     windDeg: mockdata.wind.deg,
+    //     id: mockdata.weather[0].id,
+    //     sunrise: mockdata.sys.sunrise,
+    //     sunset: mockdata.sys.sunset,
+    //     loading: false,
+    //   })
+    // }, 2000);
 
-      // setTimeout(() => {
-      //   this.setState({
-      //     city: mockdata.name,
-      //     temp: mockdata.main.temp,
-      //     minTemp: mockdata.main.temp_min,
-      //     maxTemp: mockdata.main.temp_max,
-      //     mainDescription: mockdata.weather[0].main,
-      //     detailDescription: mockdata.weather[0].description,
-      //     windSpeed: mockdata.wind.speed,
-      //     windDeg: mockdata.wind.deg,
-      //     id: mockdata.weather[0].id,
-      //     sunrise: mockdata.sys.sunrise,
-      //     sunset: mockdata.sys.sunset,
-      //     loading: false,
-      //   })
-      // }, 2000);
-
-      this.startClock();
+    this.startClock();
   }
 
   componentWillUnmount() {
