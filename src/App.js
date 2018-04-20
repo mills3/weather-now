@@ -157,6 +157,10 @@ componentDidMount() {
             interval={60000}
             format="ddd Do MMM H:mm"
           />
+          <div className="bug">
+            <p>If Shuzenji is displayed please try again in a moment.
+            There is a problem with the weather provider</p>
+          </div>
         </div>
       );
     }

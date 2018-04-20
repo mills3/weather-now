@@ -496,6 +496,22 @@ hr {
   text-shadow: 1px 1px 1px #fff, -1px -1px 1px #fff;
 }
 
+.bug {
+  position: absolute;
+  bottom: 0;
+  width: 100vw;
+  font-size: 14px;
+  display: flex;
+  justify-content: center;
+  background: rgba(255,255,255,0.5);
+  opacity: 0.5;
+  transition: opacity 0.5s;
+}
+
+.bug:hover {
+  opacity: 1;
+}
+
 @media (orientation: landscape) {
   :root {
     --diameter: 75vmin;
