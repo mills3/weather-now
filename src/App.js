@@ -142,6 +142,13 @@ componentDidMount() {
       return <p style={{ background: 'pink'}}>{error.message}</p>
     }
 
+    let bugStyles
+    if(this.state.city === 'Shuzenji') {
+      bugStyles = { opacity: 1 }
+    } else {
+      bugStyles = { opacity: 0 }
+    }
+
     if(loading) {
       return <Loading />
     } else {
@@ -157,7 +164,7 @@ componentDidMount() {
             interval={60000}
             format="ddd Do MMM H:mm"
           />
-          <div className="bug">
+          <div className="bug" style={bugStyles}>
             <p>If Shuzenji is displayed please try again in a moment.
             There is a problem with the weather provider</p>
           </div>
